@@ -1,0 +1,113 @@
+{
+  "mysql": {
+    "user": "root",
+    "host": "-network host-",
+    "password": "-password-",
+    "database": "-database name-",
+    "timestamp_offset": 0,
+    "queryTimeHistory": 500
+  },
+  "network": {
+    "opNetwork": {
+      "ip": [192, 168, 122, 0],
+      "subnet": 24
+    },
+    "iptables": "iptables",
+    "host_internet_minutes": 60,
+    "use_ssl": true,
+    "lb_use_ssl": true,
+    "only_from_balanced": false,
+    "registration_timeout": 900,
+    "internet_iface": "--internet traffic interface--"
+  },
+  "mqtt": {
+    "broker": {
+      "bind": "0.0.0.0",
+      "port": 1887,
+      "secure": 1847,
+      "ws": {
+        "bind": "0.0.0.0",
+        "port": 1886,
+        "secure": 1846
+      }
+    },
+    "order-official": "order/official",
+    "order-guest": "order/guest",
+    "order-listmsg": "order/msg",
+    "order-listch": "order/channel",
+    "track": "analytics/tracking",
+    "load_send": "load/send",
+    "load_access": "load/sub",
+    "listSendTimeout": 2
+  },
+  "react": {
+    "primary_color": "#2196f3",
+    "secondary_color": "#ff1080",
+    "theme": "dark",
+    "use_shadows": false,
+    "categoryWidth": "25%",
+    "categoryHeight": 200,
+    "productsHeight": 110,
+    "productsWidth": {
+      "360": 6,
+      "768": 4,
+      "1024": 3,
+      "1920": 2,
+      "over": 2
+    },
+    "tileWidth": 270,
+    "currency": "EUR",
+    "orderCifres": 4,
+    "scontrino": "/TEMPLATES/scontrino.json",
+    "dashboard_use_ads": true,
+    "cassa_guest": true,
+    "scontrini": {
+      "categorieCucina": [
+        "PRIMI PIATTI",
+        "SECONDI PIATTI",
+        "ALL IN ONE"
+      ],
+      "categorieBar": [
+        "BAR"
+      ],
+      "categoriaBirre": [
+        "BIRRE"
+      ],
+      "categorieAlcolici": [
+        "ALCOLICI",
+        "VINI"
+      ],
+      "categorieDessert": [
+        "DESSERT"
+      ]
+    }
+  },
+  "toPrinter": [
+    "categorieCucina",
+    "categorieAlcolici"
+  ],
+  "guest": {
+    "timeout": 900
+  },
+  "load_balancer": {
+    "load_intervals": 10,
+    "allowed_hosts": ["217.0.15.2", "217.0.15.3", "192.168.1.46"],
+    "log_packets": true,
+    "log_filter": ["client", "header", "body"],
+    "load_balanced_sign_header": "Load-Balanced",
+    "timeout": 20
+  },
+  "static_root": "",
+  "serverIP": "192.168.1.46",
+  "MQTTIP": "192.168.1.46",
+  "loginIP": "192.168.1.46",
+  "managerIP": "192.168.1.46",
+  "serverPort": 5000,
+  "serverPortHttp": 6000,
+  "serverLoginPort": 9000,
+  "managerPort": 7000,
+  "loadBalancerPort": 8000,
+  "loadBalancerPortHttp": 4000,
+  "sagraName": "--nome della sagra--",
+  "printerName": "--nome della stampante di rete--"
+}
