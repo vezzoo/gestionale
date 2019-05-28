@@ -1,0 +1,55 @@
+{
+  "modules": {
+    "users":{
+      "modulePath": "default",
+      "enabled": true
+    },
+    "magazzino": {
+      "modulePath": "./Magazzino",
+      "enabled": true
+    },
+    "cassa": {
+      "modulePath": "./Cassa",
+      "enabled": true,
+      "additional": ["networklogin"]
+    },
+    "statistica": {
+      "modulePath": "./Statistiche",
+      "enabled": true
+    },
+    "editor": {
+      "modulePath": "./Editor",
+      "enabled": true
+    },
+    "buoni": {
+      "modulePath": "./Buoni",
+      "enabled": true
+    },
+    "storico": {
+      "modulePath": "./Storico",
+      "enabled": true
+    },
+    "cassa_self": {
+      "modulePath": "./Self",
+      "enabled": true
+    },
+    "feedback": {
+      "modulePath": "./Feedback",
+      "enabled": true,
+      "ask": true,
+      "after": 18000000
+    },
+    "adsmanager": {
+      "modulePath": "./Ads",
+      "enabled": true
+    },
+    "ordermanager": {
+      "modulePath": "./OrderOptions",
+      "enabled": true
+    },
+    "networklogin": {
+      "modulePath": "./NetworkLogin",
+      "enabled": true
+    }
+  }
+}

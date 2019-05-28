@@ -1,0 +1,13 @@
+{
+  "name": "module_magazzino_delete_gruppi",
+  "index": "index.js",
+  "version": "1.0",
+  "license": "GPL3",
+  "private": true,
+  "api_name": "dltmagazzinogruppi",
+  "api_url": "/api/deleteMagazzinoGruppi",
+  "api_action": "POST",
+  "api_enable": true,
+  "dependencies": {
+  }
+}

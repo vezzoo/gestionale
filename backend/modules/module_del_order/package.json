@@ -1,0 +1,13 @@
+{
+  "name": "module_del_order",
+  "index": "index.js",
+  "version": "1.0",
+  "license": "GPL3",
+  "private": true,
+  "api_name": "ordDel",
+  "api_url": "/api/ordDel",
+  "api_action": "POST",
+  "api_enable": true,
+  "dependencies": {
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "width": 80,
+  "main":{
+    "header": {
+      "height": 37,
+      "content": [
+        {
+          "type": "text",
+          "text": "Torneo città Capriolo",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 20,
+          "x": 3,
+          "y": 15,
+          "parse": false
+        },
+        {
+          "type": "text",
+          "text": "Prodotto",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 11,
+          "x": 5,
+          "y": 34,
+          "parse": false
+        },
+        {
+          "type": "text",
+          "text": "P.Unit",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 11,
+          "x": 50,
+          "y": 34,
+          "parse": false
+        },
+        {
+          "type": "text",
+          "text": "q.ta",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 11,
+          "x": 66,
+          "y": 34,
+          "parse": false
+        },
+        {
+          "type": "line",
+          "coordsx": [
+            2,
+            78
+          ],
+          "coordsy": [
+            35,
+            35
+          ],
+          "width": 0
+        }
+      ]
+    },
+    "element": {
+      "height": 5,
+      "content": [
+        {
+          "type": "text",
+          "text": "_product",
+          "font": "helvetica",
+          "variant": "normal",
+          "size": 11,
+          "x": 5,
+          "y": 4,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "EUR",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 11,
+          "x": 45,
+          "y": 4,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "_price",
+          "font": "helvetica",
+          "variant": "normal",
+          "size": 11,
+          "x": 55,
+          "y": 4,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "_qta",
+          "font": "helvetica",
+          "variant": "italic",
+          "size": 11,
+          "x": 66,
+          "y": 4,
+          "parse": true
+        }
+      ]
+    },
+    "footer": {
+      "height": 55,
+      "content": [
+        {
+          "type": "text",
+          "text": "PAGATO",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 14,
+          "x": 5,
+          "y": 6,
+          "parse": true
+        },
+        {
+          "type": "line",
+          "coordsx": [
+            2,
+            36
+          ],
+          "coordsy": [
+            1,
+            1
+          ],
+          "width": 0
+        },
+        {
+          "type": "text",
+          "text": "E.",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 14,
+          "x": 45,
+          "y": 6,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "_pay",
+          "font": "helvetica",
+          "variant": "normal",
+          "size": 14,
+          "x": 52,
+          "y": 6,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "RESTO",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 12,
+          "x": 5,
+          "y": 12,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "E.",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 12,
+          "x": 45,
+          "y": 12,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "_rest",
+          "font": "helvetica",
+          "variant": "normal",
+          "size": 12,
+          "x": 52,
+          "y": 12,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "_buono",
+          "font": "helvetica",
+          "variant": "italic",
+          "size": 11,
+          "x": 5,
+          "y": 17,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "TOTALE",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 14,
+          "x": 5,
+          "y": 24,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "E. _tot",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 22,
+          "x": 38,
+          "y": 24,
+          "parse": true
+        },
+        {
+          "type": "rect",
+          "dofill": true,
+          "fill": [
+            200,
+            200,
+            200
+          ],
+          "border": [
+            255,
+            255,
+            255
+          ],
+          "x": 0,
+          "y": 26,
+          "w": 80,
+          "h": 17,
+          "round": 0
+        },
+        {
+          "type": "text",
+          "text": "_ord",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 35,
+          "x": 47,
+          "y": 39,
+          "parse": true
+        }
+      ]
+    }
+  },
+  "details":{
+    "header": {
+      "height": 42,
+      "content": [
+        {
+          "type": "text",
+          "text": "Torneo città Capriolo",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 20,
+          "x": 3,
+          "y": 15,
+          "parse": false
+        },
+        {
+          "type": "text",
+          "text": "_catg",
+          "font": "helvetica",
+          "variant": "italic",
+          "size": 18,
+          "x": 35,
+          "y": 25,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "Prodotto",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 11,
+          "x": 5,
+          "y": 34,
+          "parse": false
+        },
+
+        {
+          "type": "text",
+          "text": "q.ta",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 11,
+          "x": 66,
+          "y": 34,
+          "parse": false
+        },
+
+        {
+          "type": "line",
+          "coordsx": [
+            2,
+            78
+          ],
+          "coordsy": [
+            35,
+            35
+          ],
+          "width": 0
+        }
+      ]
+    },
+    "element": {
+      "height": 6,
+      "content": [
+        {
+          "type": "text",
+          "text": "_product",
+          "font": "helvetica",
+          "variant": "normal",
+          "size": 11,
+          "x": 5,
+          "y": 4,
+          "parse": true
+        },
+        {
+          "type": "text",
+          "text": "_qta",
+          "font": "helvetica",
+          "variant": "italic",
+          "size": 11,
+          "x": 66,
+          "y": 4,
+          "parse": true
+        }
+      ]
+    },
+    "footer": {
+      "height": 33,
+      "content": [
+        {
+          "type": "line",
+          "coordsx": [
+            2,
+            30
+          ],
+          "coordsy": [
+            1,
+            1
+          ],
+          "width": 0
+        },
+        {
+          "type": "rect",
+          "dofill": true,
+          "fill": [
+            200,
+            200,
+            200
+          ],
+          "border": [
+            255,
+            255,
+            255
+          ],
+          "x": 0,
+          "y": 3,
+          "w": 80,
+          "h": 17,
+          "round": 0
+        },
+        {
+          "type": "text",
+          "text": "_ord",
+          "font": "helvetica",
+          "variant": "bold",
+          "size": 35,
+          "x": 47,
+          "y": 15,
+          "parse": true
+        }
+      ]
+    }
+  },
+  "kw": {
+    "totale": "_tot",
+    "resto": "_rest",
+    "pagato": "_pay",
+    "buono": "_buono",
+    "ordnum": "_ord",
+    "qrdata": "_qr",
+    "qta": "_qta",
+    "text": "_product",
+    "total": "_price",
+    "category": "_catg"
+  }
+}
