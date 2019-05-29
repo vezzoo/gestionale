@@ -1,15 +1,15 @@
 {
   "mysql": {
-    "user": "root",
-    "host": "-network host-",
-    "password": "-password-",
-    "database": "-database name-",
-    "timestamp_offset": 0,
+    "user": "--user--",
+    "host": "--host--",
+    "password": "--password--",
+    "database": "--database--",
+    "timestamp_offset": -7200,
     "queryTimeHistory": 500
   },
   "network": {
     "opNetwork": {
-      "ip": [192, 168, 122, 0],
+      "ip": [192, 168, 1, 0],
       "subnet": 24
     },
     "iptables": "iptables",
@@ -43,7 +43,7 @@
   "react": {
     "primary_color": "#2196f3",
     "secondary_color": "#ff1080",
-    "theme": "dark",
+    "theme": "light",
     "use_shadows": false,
     "categoryWidth": "25%",
     "categoryHeight": 200,
@@ -56,35 +56,29 @@
       "over": 2
     },
     "tileWidth": 270,
-    "currency": "EUR",
+    "currency": "€",
     "orderCifres": 4,
     "scontrino": "/TEMPLATES/scontrino.json",
     "dashboard_use_ads": true,
     "cassa_guest": true,
     "scontrini": {
-      "categorieCucina": [
+      "Cucina": [
         "PRIMI PIATTI",
         "SECONDI PIATTI",
-        "ALL IN ONE"
+        "FAST FOOD"
       ],
-      "categorieBar": [
-        "BAR"
-      ],
-      "categoriaBirre": [
-        "BIRRE"
-      ],
-      "categorieAlcolici": [
+      "Bar": [
+        "BIBITE",
         "ALCOLICI",
-        "VINI"
+        "CAFFÉ"
       ],
-      "categorieDessert": [
-        "DESSERT"
+      "NO_CATEGORY": [
+        "MENU"
       ]
     }
   },
   "toPrinter": [
-    "categorieCucina",
-    "categorieAlcolici"
+    "Cucina"
   ],
   "guest": {
     "timeout": 900
@@ -98,16 +92,20 @@
     "timeout": 20
   },
   "static_root": "",
-  "serverIP": "192.168.1.46",
-  "MQTTIP": "192.168.1.46",
-  "loginIP": "192.168.1.46",
-  "managerIP": "192.168.1.46",
+  "serverIP": "www.--domain--",
+  "MQTTIP": "mqtt.--domain--",
+  "loginIP": "www.--domain--",
+  "managerIP": "manager.--domain--",
   "serverPort": 5000,
   "serverPortHttp": 6000,
   "serverLoginPort": 9000,
   "managerPort": 7000,
   "loadBalancerPort": 8000,
   "loadBalancerPortHttp": 4000,
-  "sagraName": "--nome della sagra--",
-  "printerName": "--nome della stampante di rete--"
+  "sagraName": "--nome--",
+  "printerName": "--printer--",
+  "downloads": [
+    "piatti totali per pietanza",
+    "incassi totali per pietanza"
+  ]
 }
