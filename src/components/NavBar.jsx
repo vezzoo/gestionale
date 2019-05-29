@@ -10,6 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Avatar from "@material-ui/core/es/Avatar/Avatar";
 import Home from "@material-ui/icons/Home"
+import {POST} from "../network";
+import {apiCalls} from "../consts"
 
 const styles = {
     root: {
@@ -95,9 +97,17 @@ class NavBar extends React.Component {
                                 <MenuItem><Typography variant="title">{window.ctx.get("name")}</Typography></MenuItem>
                                 <MenuItem onClick={() => this.props.history.push('/users')}>Gestione</MenuItem>
                                 <MenuItem onClick={() => {
-                                    document.cookie = "";
-                                    window.ctx.set("isLogged", false);
-                                    this.props.history.push('/')
+
+                                    POST(apiCalls.logout, {user: window.ctx.get("username"), token: window.ctx.get("token")}).then(e => {
+                                        if (!e.state) {
+                                            alert("LOGOUT ERROR");
+                                            console.log(e)
+                                            return;
+                                        }
+                                        document.cookie = "";
+                                        window.ctx.set("isLogged", false);
+                                        this.props.history.push('/')
+                                    })
                                 }}>Logout</MenuItem>
                             </Menu>
                         </div>

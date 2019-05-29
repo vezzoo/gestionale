@@ -4,6 +4,7 @@ import {apiCalls} from "./consts";
 
 function auth(continueLIN, user, psw, show) {
     POST(apiCalls.auth, {user: user, psw: psw}).then(res => {
+        console.log(res)
         if (!res || !res.state) {
             show("ERRORE", `Login failed: ${res.err}`, true);
             return;

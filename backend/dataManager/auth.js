@@ -23,12 +23,17 @@ function auth(req, res) {
     shasum.update(data.psw);
     // noinspection JSCheckFunctionSignatures
     let hpsw = shasum.digest('hex');
-
+    let a = true;
     getConnection().query(`SELECT name AS nome, MIN(secure) AS sec, MIN(admin) AS admin, GROUP_CONCAT(DISTINCT previlegi.description) AS privs FROM utenti, utenti_previlegi_assoc INNER JOIN previlegi on utenti_previlegi_assoc.previlegi_FOREGIN = previlegi.id WHERE  username='${secure(data.user)}' AND password='${hpsw}' AND enabled=1 AND utenti_previlegi_assoc.utenti_FOREGIN = utenti.id GROUP BY name;`, function (error, results, fields) {
         if (results && results.length === 1 && !error) {
             let finalstate = results[0].sec;
             if (data.user === data.psw || data.psw === "admin" || data.user === "root") finalstate = 1; //TODO: LE PASSWORD SONO IN SHA1 COGLIONE!!!
             let tok = getNewToken();
+            if(user_association.get(data.user) && user_association.get(data.user).token){
+                a = false;
+                res.send({state: false, err: "Already logged in."});
+                return;
+            }
             user_association.set(data.user, {token: tok, privs: results[0].privs.split(",")});
             res.send({
                 state: true,
@@ -41,8 +46,19 @@ function auth(req, res) {
             return;
         }
         error && console.log(error);
-        res.send({state: false, err: "Access denied."})
+        if(a) res.send({state: false, err: "Access denied."});
     });
+}
+
+function logout(req, res) {
+    let data = req.body;
+    if (!data.user) {
+        res.send({state: false, err: "Insufficent data"});
+        return;
+    }
+    data.user = secure(data.user);
+    if(user_association.get(data.user)) user_association.get(data.user).token = undefined;
+    res.send({state: true})
 }
 
 function auth_refresh(req, res) {
@@ -74,5 +90,6 @@ function get_user_state(req, res) {
 }
 
 module.exports.auth = auth;
+module.exports.logout = logout;
 module.exports.auth_refresh = auth_refresh;
 module.exports.get_user_state = get_user_state;

@@ -8,7 +8,7 @@ const cfg = require("../network.config");
 const bodyParser = require('body-parser');
 const {logger_init} = require("../logger");
 const crypto = require('crypto');
-const {auth, auth_refresh, get_user_state} = require("./auth");
+const {auth, auth_refresh, get_user_state, logout} = require("./auth");
 const {operateNo, increment} = require("./orders");
 
 const user_association = new Map();
@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
 app.post("/api/operate", operateNo);
 app.get("/api/getNext", increment);
 app.post('/api/auth', auth);
+app.post('/api/logout', logout);
 app.post('/api/refresh', auth_refresh);
 app.post('/api/getUserState', get_user_state);
 

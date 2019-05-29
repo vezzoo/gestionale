@@ -24,6 +24,12 @@
       "action": "POST",
       "enabled": true
     },
+    "logout": {
+      "modulePath": "./modules/built/module_auth_logout.js",
+      "url": "/api/logout",
+      "action": "POST",
+      "enabled": true
+    },
     "refresh": {
       "modulePath": "./modules/built/module_auth_refresh.js",
       "url": "/api/refresh",
