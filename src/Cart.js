@@ -71,14 +71,14 @@ let renderCart = (cart, classes, classs, normalized = false, withButtons = true)
     return (
         <Paper className={classes.paper}>
             <Grid container spacing={24}>
-                {mc.map((e, idx) => {
+                {mc.filter(e => e[1].qta > 0).map((e, idx) => {
                     let k = e[0], v = e[1];
                     tote += parseInt(v.eur) * v.qta;
                     totc += parseInt(v.cents) * v.qta;
-                    if (v.qta < 1) {
-                        cart.splice(idx, 1);
-                        classs.forceUpdate()
-                    }
+                    // if (v.qta < 1) {
+                    //     cart.splice(idx, 1);
+                    //     classs.forceUpdate()
+                    // }
                     return (
                         <Grid item xs={12}>
                             <Grid container spacing={24}>
@@ -132,7 +132,7 @@ let renderCart = (cart, classes, classs, normalized = false, withButtons = true)
                                                             cart[i].qta++;
                                                             classs.images.map(im => im.prods).flat().forEach((e) => {
                                                                 if (cart[i].desc === e.desc) e.qta ++;
-                                                            })
+                                                            });
                                                             break;
                                                         }
                                                     classs.forceUpdate()
@@ -142,7 +142,7 @@ let renderCart = (cart, classes, classs, normalized = false, withButtons = true)
                                                             cart[i].qta > 0 ? cart[i].qta-- : cart.splice(i, 1);
                                                             classs.images.map(im => im.prods).flat().forEach((e) => {
                                                                 if (cart[i].desc === e.desc) e.qta --;
-                                                            })
+                                                            });
                                                             break;
                                                         }
                                                     classs.forceUpdate()
