@@ -132,6 +132,13 @@ class Scontrino extends React.Component {
             fullArr.push(...this.props.elementi[e])
         });
 
+        let unique = [];
+        fullArr.forEach(e => {
+            if (!unique.includes(JSON.stringify(e))) unique.push(JSON.stringify(e));
+        });
+
+        fullArr = unique.map(e => JSON.parse(e));
+
         let height = res.main.header.height + res.main.element.height * fullArr.length + res.main.footer.height;
         if(this.props.fixedHeight && height < this.props.fixedHeigh) height = this.props.fixedHeigh;
         // noinspection JSPotentiallyInvalidConstructorUsage
