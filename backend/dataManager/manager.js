@@ -8,10 +8,9 @@ const cfg = require("../network.config");
 const bodyParser = require('body-parser');
 const {logger_init} = require("../logger");
 const crypto = require('crypto');
-const {auth, auth_refresh, get_user_state, logout} = require("./auth");
+const {auth, auth_refresh, get_user_state, logout, unlog_all} = require("./auth");
 const {operateNo, increment} = require("./orders");
 
-const user_association = new Map();
 logger_init("./log/counter.error.log", "./log/counter.log");
 
 const app = express();
@@ -24,6 +23,7 @@ app.post('/api/auth', auth);
 app.post('/api/logout', logout);
 app.post('/api/refresh', auth_refresh);
 app.post('/api/getUserState', get_user_state);
+app.post('/api/logout_all', unlog_all);
 
 app.get("/", (req, res) => {
     res.send("ALIVE")

@@ -93,3 +93,8 @@ module.exports.auth = auth;
 module.exports.logout = logout;
 module.exports.auth_refresh = auth_refresh;
 module.exports.get_user_state = get_user_state;
+module.exports.unlog_all = (req, res) => {
+    user_association.clear();
+    console.log(user_association);
+    res.send({status: "ok"})
+}

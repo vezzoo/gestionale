@@ -35,6 +35,7 @@ import {getBillData, getCartLenght, getCarts, getTotal, normalizeCart, renderCar
 import DialogActions from "@material-ui/core/es/DialogActions/DialogActions";
 import DialogContentText from "@material-ui/core/es/DialogContentText/DialogContentText";
 import * as cfg from "./configs/network.config"
+import Modal from "@material-ui/core/Modal";
 
 const styles = theme => ({
     marginTop: {
@@ -113,6 +114,21 @@ const styles = theme => ({
     qrcode: {
         backgroundColor: "#fff",
         padding: 50
+    },
+    paperr: {
+        position: 'absolute',
+        width: theme.spacing.unit * 50,
+        backgroundColor: theme.palette.background.paper,
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing.unit * 4,
+        outline: 'none',
+        top: '20%',
+        left: '50%',
+        transform: 'translate(-50%, -50%) !important',
+    },
+    rightItems: {
+        float: 'right',
+        marginTop: '15px'
     }
 });
 
@@ -152,6 +168,7 @@ class Cassa extends React.Component {
         usabuono: false,
         faketotal: 0,
         stampaDisabled: true,
+        openCheck: false
     };
 
     images = [];
@@ -159,6 +176,20 @@ class Cassa extends React.Component {
     total = [0, 0];
 
     ip = "unavailable";
+
+    newOrdine = () => {
+        this.reloadList().then(() => {
+            this.state.payed = "";
+            this.state.note = "";
+            this.setState({
+                cart: [],
+                currentState: this.status.product,
+                step: 0,
+                currentList: this.images.map(im => im.prods).flat(),
+                isAsporto: false
+            });
+        });
+    };
 
     normalizeCart = () => {
         return normalizeCart(this.state.cart)
@@ -497,41 +528,38 @@ class Cassa extends React.Component {
                                     disabled={this.state.stampaDisabled}
                                     onClick={() => {
 
-                                        let client = mqtt.connect(mqttServer);
-                                        client.on('connect', () => {
-                                            client.publish(cfg.mqtt["order-official"], JSON.stringify(
-                                                {
-                                                    cart: this.getCarts(),
-                                                    orderID: this.state.ordernum,
-                                                    asporto: this.state.isAsporto,
-                                                    message: this.state.note,
-                                                    ip: this.ip,
-                                                    user: window.ctx.get("username"),
-                                                    buono: this.state.usabuono,
-                                                    buonoID: this.state.buonoId,
-                                                    time: Math.floor(Date.now() / 1000),
-                                                    ordnum: this.ordnum,
-                                                    totale: this.total
-                                                }));
-                                            client.end();
-                                        });
+                                        this.setState({stampaDisabled: true}, () => {
+                                            let client = mqtt.connect(mqttServer);
+                                            client.on('connect', () => {
+                                                client.publish(cfg.mqtt["order-official"], JSON.stringify(
+                                                    {
+                                                        cart: this.getCarts(),
+                                                        orderID: this.state.ordernum,
+                                                        asporto: this.state.isAsporto,
+                                                        message: this.state.note,
+                                                        ip: this.ip,
+                                                        user: window.ctx.get("username"),
+                                                        buono: this.state.usabuono,
+                                                        buonoID: this.state.buonoId,
+                                                        time: Math.floor(Date.now() / 1000),
+                                                        ordnum: this.ordnum,
+                                                        totale: this.total
+                                                    }));
+                                                client.end();
+                                            });
 
-                                        document.getElementById("tobeprinted").postMessage({type: 'print'});
-                                        this.setState({stampaDisabled: true});
+                                            document.getElementById("tobeprinted").postMessage({type: 'print'});
+                                        })
+                                        ;
                                     }}>stampa</Button>
                             <Button className={this.props.classes.bigb} fullWidth variant="contained" color="secondary"
                                     onClick={() => {
-                                        this.reloadList().then(() => {
-                                            this.state.payed = "";
-                                            this.state.note = "";
-                                            this.setState({
-                                                cart: [],
-                                                currentState: this.status.product,
-                                                step: 0,
-                                                currentList: this.images.map(im => im.prods).flat(),
-                                                isAsporto: false
-                                            });
-                                        });
+                                        if (!this.state.stampaDisabled) {
+                                            this.setState({openCheck: true});
+                                        } else {
+                                            this.newOrdine();
+                                        }
+
                                     }}>NUOVO ORDINE</Button>
                             <Button className={this.props.classes.bigb} fullWidth variant="contained" color="secondary"
                                     onClick={() => {
@@ -738,6 +766,26 @@ class Cassa extends React.Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
+
+                <Modal
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    open={this.state.openCheck}
+                    onClose={() => this.setState({openCheck: false})}
+                >
+                    <div className={this.props.classes.paperr}>
+                        <h4>
+                            Sei sicuro di voler creare un nuovo ordine? Questo ordine non é ancora stato stampato!
+                        </h4>
+                        <div className={this.props.classes.rightItems}>
+                            <Button onClick={() => this.setState({openCheck: false})}>No</Button>
+                            <Button onClick={() => {
+                                this.setState({openCheck: false});
+                                this.newOrdine();
+                            }} style={{backgroundColor: 'red'}}>Si</Button>
+                        </div>
+                    </div>
+                </Modal>
             </div>
         );
     }

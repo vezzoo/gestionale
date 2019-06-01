@@ -152,7 +152,7 @@ class Storico extends React.Component {
                         {this.state.doSearch ? <SearchProgressIcon/> : <SearchIcon/>}
                     </IconButton>,
                     <IconButton color="inherit"
-                                onClick={() => this.setState({openModal: true, msgModal: "Sei sicuro di voler eliminare tutti gli ordini presenti nel database? Questa operzione non è\nreversibile!", from: "database"})}><DeleteIcon/></IconButton>
+                                onClick={() => this.setState({openModal: true, msgModal: "Sei sicuro di voler eliminare tutti gli ordini presenti nel database? Questa operazione non è\nreversibile!", from: "database"})}><DeleteIcon/></IconButton>
 
                 ]} titleText='Storico ordini' history={this.props.history} showHome={true}/>
 
@@ -216,7 +216,7 @@ class Storico extends React.Component {
                                             Stampa
                                         </Button>
                                         <Button onClick={() => {
-                                            this.setState({openModal: true, msgModal: "Sei sicuro di voler eliminare l'ordine " + this.state.ord.ordnum + " (" + this.state.ord.orderID + ") ? Questa operzione non è\nreversibile!", from: "ordine"})
+                                            this.setState({openModal: true, msgModal: "Sei sicuro di voler eliminare l'ordine " + this.state.ord.ordnum + " (" + this.state.ord.orderID + ") ? Questa operazione non è\nreversibile!", from: "ordine"})
                                         }} color="secondary" variant={"contained"}>
                                             Elimina
                                         </Button>

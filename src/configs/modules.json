@@ -50,6 +50,10 @@
     "networklogin": {
       "modulePath": "./NetworkLogin",
       "enabled": true
+    },
+    "logoutall": {
+      "modulePath": "./LogoutAll",
+      "enabled": true
     }
   }
 }
